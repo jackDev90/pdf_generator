@@ -28,17 +28,6 @@ function App() {
     }
   }
 
-  const exportPdf = (item) => {
-    const filename = `products.pdf`;
-    const headers = [
-      { key: "title", display: "Product Name" },
-      { key: "stock", display: "Stock" },
-      { key: "price", display: "Price" },
-      { key: "category", display: "Category" },
-    ];
-    GeneratePdf({ data: item, headers, filename });
-  };
-
   return (
     <>
       <div className="container">
@@ -57,7 +46,9 @@ function App() {
           </div>
         ) : (
           <>
-            <table className="table table-striped table-responsive">
+            <table
+              id="pdf-table"
+              className="table table-striped table-responsive">
               {<Colums />}
               <tbody>
                 {products.map((item, index) => {
@@ -69,9 +60,7 @@ function App() {
                 })}
               </tbody>
             </table>
-            <button
-              className="btn btn-danger mb-5"
-              onClick={() => exportPdf(products)}>
+            <button className="btn btn-danger mb-5" onClick={GeneratePdf}>
               Download PDF
             </button>
           </>

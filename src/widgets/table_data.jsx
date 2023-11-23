@@ -12,7 +12,7 @@ function TableData({ data }) {
         <td className="px-6 py-4">{data.stock}</td>
         <td className="px-6 py-4 capitalize">{data.category}</td>
         <td className="px-6 py-4">ZMW {data.price}</td>
-        <td id="print">
+        <td id="hideActions">
           <button className="btn btn-sm btn-info">Edit</button>
           <button className="btn btn-sm btn-danger">Delete</button>
         </td>
